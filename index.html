@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Text Editor</title>
+	<style type="text/css">
+	    .heading{
+	    	font-size: 30px;
+	    	font-weight: bolder;
+	    	color: royalblue;
+
+	    }
+	    label{
+	    	font-size: 25px;
+	    	font-weight: bolder;
+	    	color: black;
+
+	    }
+	</style>
+</head>
+<body>
+	<div class="texteditor" align="center">
+		<h1 class="heading">TEXT BOX</h1>
+		<div class="form-con">
+			<form class="textform">
+				<label>Enter text below</label>
+				<br><br>
+				<textarea autofocus rows="20" cols="90" id="usertext"></textarea>
+				<br><br>
+				<button type="button" onclick="transformToUpperCase()">UPPERCASE</button>
+				<button type="button" onclick="transformToLowerCase()">LOWERCASE</button>
+			</form>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+		function transformToUpperCase() {
+			// body...
+			let text=document.getElementById('usertext');
+			text.value=(text.value).toUpperCase();
+		}
+		function transformToLowerCase() {
+			// body...
+			let text=document.getElementById('usertext');
+			text.value=(text.value).toLowerCase();
+		}
+
+	</script>
+
+</body>
+</html>
