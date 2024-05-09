@@ -5,8 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Text Editor</title>
 	<style type="text/css">
+		body{
+			background-color:lightyellow;
+		}
 	    .heading{
-	    	font-size: 30px;
+	    	font-size: 50px;
 	    	font-weight: bolder;
 	    	color: royalblue;
 
@@ -17,24 +20,63 @@
 	    	color: black;
 
 	    }
+	    .from-con{
+	    	margin-top:50px;
+
+	    }
+	    textarea{
+	    	margin-top: 30px;
+	    	font-size: 25px;
+	    	font-family: sans-serif;
+	    	padding: 20px;
+	    	background-color:lightcyan;
+	    	color: black;
+	    	display: block;
+	    	
+	    }
+	    button{
+	    	border: none;
+	    	height: 50px;
+	    	width: 110px;
+	    	background-color: brown;
+	    	color: white;
+	    	border-radius: 13px;
+	    	font-weight: bolder;
+
+	    }
+	    #btncolor{
+	    	width: 150px;
+	    }
+
 	</style>
 </head>
 <body>
 	<div class="texteditor" align="center">
-		<h1 class="heading">TEXT BOX</h1>
+		<h1 class="heading">TEXT EDITOR</h1>
 		<div class="form-con">
 			<form class="textform">
 				<label>Enter text below</label>
 				<br><br>
-				<textarea autofocus rows="20" cols="90" id="usertext"></textarea>
+				<textarea autofocus rows="10" cols="90" id="usertext"></textarea>
 				<br><br>
 				<button type="button" onclick="transformToUpperCase()">UPPERCASE</button>
 				<button type="button" onclick="transformToLowerCase()">LOWERCASE</button>
+				<button type="button" onclick="searchText()">SEARCH TEXT</button>
+				<button type="button" onclick="changeTextColor()" id="btncolor">CHANGE COLOR</button>
+				<button type="button" onclick="changeFontSize()">FONT-SIZE</button>
+				<button type="button" onclick="usertext.value=' '">ALL CLEAR</button>
+				<br>
+				<h2 id="op">This text contains 2 words and 5 characters</h2>
 			</form>
 		</div>
 		
 	</div>
 	<script type="text/javascript">
+		function updateTextInfo(){
+			let text = document.getElementById("usertext").value;
+			let wrds=text.spilt("").length-1;
+			document.getElementById("op").innerHTML = "This text contains"+wrds+"words and "+text.length+"characters."
+		}
 		function transformToUpperCase() {
 			// body...
 			let text=document.getElementById('usertext');
@@ -45,8 +87,29 @@
 			let text=document.getElementById('usertext');
 			text.value=(text.value).toLowerCase();
 		}
-
-	</script>
+		function searchText(){
+			let text=document.getElementById('usertext').value;
+			let searchText =prompt("Enter a text to search : ");
+			if (text.includes(searchText)) {
+				alert("Yess the text " + searchText+" is present")
+			}else{
+				alert("NOOO the text " + searchText+ " is not present")
+			}
+		}
+		function changeTextColor(){
+			let text=document.getElementById("usertext");
+			text.style.color=prompt("Enter a color:");
+		}
+		function changeFontSize() {
+			var text=document.getElementById("usertext");
+			text.style.fontSize=prompt("Enter a size: ");
+			
+         }
+         	</script>
 
 </body>
 </html>
+<!--
+var span = document.getElementById("span");
+span.style.fontsize = "25px";
+span.innerHTML = "String";-->
